@@ -1,0 +1,8 @@
+{
+  "name": "frontend-ui",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/run_tests.mjs"
+  }
+}

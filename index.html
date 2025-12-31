@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hand Gesture Recognition</title>
+    <link rel="stylesheet" href="src/styles.css">
+  </head>
+  <body>
+    <main class="container">
+      <h1>Hand Gesture Recognition</h1>
+      <div class="video-wrap">
+        <video id="video" autoplay playsinline></video>
+        <canvas id="output"></canvas>
+      </div>
+      <div class="controls">
+        <div class="left">
+          <button id="startBtn">Start Camera</button>
+          <button id="stopBtn" disabled>Stop Camera</button>
+          <label class="inline"><input type="checkbox" id="detectToggle" checked> Enable Detection</label>
+          <label class="inline">Confidence: <input id="confidence" type="range" min="0" max="1" step="0.05" value="0.7"></label>
+          <label class="inline">Max Hands: <input id="maxHands" type="number" min="1" max="4" value="1" style="width:64px"></label>
+        </div>
+        <div class="right">
+          <button id="clearLogBtn">Clear Log</button>
+          <button id="downloadLogBtn">Download Log</button>
+          <div id="indicator" class="indicator" title="Gesture indicator"></div>
+        </div>
+      </div>
+
+      <section class="log-wrap">
+        <h2>Event Log</h2>
+        <div id="log" class="log"></div>
+      </section>
+      <div class="status">
+        <div id="gesture">Gesture: <strong id="gestureText">—</strong></div>
+        <div id="fps">FPS: <strong id="fpsVal">0</strong></div>
+        <div id="proximity">Proximity: <strong id="proximityText">—</strong></div>
+      </div>
+      <p class="hint">Allow camera access. Try open palm, closed fist, or thumbs up.</p>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
